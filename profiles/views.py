@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
+from django.contrib import messages
+from django.contrib.auth.models import User
 from .forms import RegisterForm
 
 # Create your views here.
@@ -9,7 +11,13 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "User registered successfully!")
             return redirect('blogs_list')
     else:
         form = RegisterForm()
     return render(request, 'profiles/register.html', {'form': form})
+
+
+def profile(request, pk):
+    user = get_object_or_404(User, pk=pk)
+    return render(request, "profiles/profile.html", {"user": user})
