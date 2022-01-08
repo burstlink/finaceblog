@@ -10,7 +10,7 @@
             <p>{{user.profile.description}}</p>
             {% if request.user == user %}
             <div class="links">
-                <a href="#" class="btn btn-sm btn-primary">Update Profile</a>
+                <a href="{% url 'update' %}" class="btn btn-sm btn-primary">Update Profile</a>
             </div>
             {% endif %}
         </div>

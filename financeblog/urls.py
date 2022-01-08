@@ -1,4 +1,4 @@
-"""finacebloge URL Configuration
+"""financeblog URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/4.0/topics/http/urls/
@@ -25,7 +25,8 @@ urlpatterns = [
     path('register/', profiles_views.register, name='register'),
     path('login/', auth_view.LoginView.as_view(template_name='profiles/login.html'), name='login'),
     path('logout/', auth_view.LogoutView.as_view(template_name='profiles/logout.html'), name='logout'),
-    path('profile/<int:pk>', profiles_views.profile, name="profile")
+    path('profile/<int:pk>', profiles_views.profile, name="profile"),
+    path('profile/update', profiles_views.update, name='update'),
 ]
 
 if settings.DEBUG:
