@@ -5,7 +5,7 @@ from django.urls import reverse
 from django.core.validators import MinLengthValidator
 
 content_validator = MinLengthValidator(
-    limit_value=300, message='Content should be at least 300 characters long!')
+    limit_value=30, message='Content should be at least 300 characters long!')
 # Create your models here.
 
 
@@ -19,4 +19,4 @@ class Blog(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog_detail', kwargs={'pk': self.title})
+        return reverse('blog_detail', kwargs={'pk': self.pk})
