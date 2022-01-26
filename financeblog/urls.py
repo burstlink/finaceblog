@@ -22,6 +22,7 @@ from profiles import views as profiles_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('blog.urls')),
+    path('questions/', include('advice.urls')),
     path('register/', profiles_views.register, name='register'),
     path('login/', auth_view.LoginView.as_view(template_name='profiles/login.html'), name='login'),
     path('logout/', auth_view.LogoutView.as_view(template_name='profiles/logout.html'), name='logout'),
